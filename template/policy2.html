@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Privacy Policy</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-color: #3b82f6;
+      --primary-dark: #2563eb;
+      --accent-color: #8b5cf6;
+      --text-primary: #111827;
+      --text-secondary: #6b7280;
+      --text-muted: #9ca3af;
+      --bg-color: #ffffff;
+      --bg-secondary: #f9fafb;
+      --bg-highlight: #eff6ff;
+      --border-color: #e5e7eb;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      --max-width: 900px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --primary-color: #60a5fa;
+        --primary-dark: #3b82f6;
+        --accent-color: #a78bfa;
+        --text-primary: #f9fafb;
+        --text-secondary: #d1d5db;
+        --text-muted: #9ca3af;
+        --bg-color: #0f172a;
+        --bg-secondary: #1e293b;
+        --bg-highlight: #1e3a8a;
+        --border-color: #334155;
+      }
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.7;
+      color: var(--text-primary);
+      background-color: var(--bg-color);
+      transition: background-color 0.3s ease;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    header {
+      text-align: center;
+      padding: 48px 24px 40px;
+      margin-bottom: 48px;
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+      border-radius: 16px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    h1 {
+      font-size: 2.75rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 16px;
+      letter-spacing: -0.025em;
+    }
+
+    .subtitle {
+      font-size: 1.125rem;
+      color: rgba(255, 255, 255, 0.95);
+      max-width: 700px;
+      margin: 0 auto 16px;
+      line-height: 1.6;
+    }
+
+    .last-updated {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 500;
+      display: inline-block;
+      padding: 8px 16px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+    }
+
+    main {
+      background-color: var(--bg-color);
+      border-radius: 12px;
+      padding: 32px;
+      box-shadow: var(--shadow-md);
+    }
+
+    section {
+      margin-bottom: 40px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    h2 {
+      font-size: 1.875rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    h2::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 28px;
+      background: linear-gradient(180deg, var(--primary-color), var(--accent-color));
+      border-radius: 2px;
+    }
+
+    h3 {
+      font-size: 1.375rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-top: 24px;
+      margin-bottom: 12px;
+    }
+
+    p {
+      margin-bottom: 16px;
+      color: var(--text-secondary);
+      font-size: 1rem;
+    }
+
+    ul {
+      margin-left: 24px;
+      margin-bottom: 16px;
+      color: var(--text-secondary);
+    }
+
+    li {
+      margin-bottom: 10px;
+      padding-left: 8px;
+    }
+
+    li::marker {
+      color: var(--primary-color);
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, var(--bg-highlight) 0%, var(--bg-secondary) 100%);
+      border-left: 4px solid var(--primary-color);
+      padding: 24px;
+      margin: 24px 0;
+      border-radius: 8px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .highlight-box p {
+      color: var(--text-primary);
+      font-weight: 500;
+      margin-bottom: 0;
+    }
+
+    .important-notice {
+      background-color: var(--bg-highlight);
+      border: 2px solid var(--primary-color);
+      padding: 20px 24px;
+      margin: 24px 0;
+      border-radius: 12px;
+      position: relative;
+    }
+
+    .important-notice::before {
+      content: '⚠️';
+      font-size: 1.5rem;
+      position: absolute;
+      left: 24px;
+      top: 20px;
+    }
+
+    .important-notice p {
+      margin-left: 36px;
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .emphasis {
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+
+    .contact-section {
+      background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-color) 100%);
+      padding: 40px;
+      border-radius: 12px;
+      text-align: center;
+      margin-top: 48px;
+      border: 1px solid var(--border-color);
+    }
+
+    .contact-section h2 {
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .contact-section h2::before {
+      display: none;
+    }
+
+    .email-link {
+      display: inline-block;
+      color: #ffffff;
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.125rem;
+      padding: 14px 32px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-md);
+      margin-top: 8px;
+    }
+
+    .email-link:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      margin-top: 48px;
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+      margin: 40px 0;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      h3 {
+        font-size: 1.25rem;
+      }
+
+      .container {
+        padding: 16px;
+      }
+
+      header {
+        padding: 32px 20px 28px;
+        margin-bottom: 32px;
+      }
+
+      main {
+        padding: 24px 20px;
+      }
+
+      .contact-section {
+        padding: 28px 20px;
+      }
+
+      .important-notice p {
+        margin-left: 0;
+        margin-top: 8px;
+      }
+
+      .important-notice::before {
+        position: static;
+        display: block;
+        margin-bottom: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Privacy Policy</h1>
+      <p class="subtitle">This Privacy Policy explains how we collect, use, processes, and protect information when you use our mobile application and related services (the "Service").</p>
+      <div class="last-updated">Last updated: January 2026</div>
+    </header>
+
+    <main>
+      <p style="text-align: center; margin-bottom: 32px; font-size: 1.125rem;">By using the Service, you agree to the practices described in this Privacy Policy.</p>
+
+      <div class="divider"></div>
+
+      <section>
+        <h2>1. Information Collection and Use</h2>
+        
+        <h3>Information You Provide</h3>
+        <ul>
+          <li>Photos you voluntarily upload for image processing</li>
+          <li>Messages or inquiries sent through support channels</li>
+          <li>Account information (if account creation is required)</li>
+        </ul>
+        
+        <h3>Automatically Collected Information</h3>
+        <ul>
+          <li>Device information (device type, operating system version)</li>
+          <li>Usage data (features used, session duration)</li>
+          <li>Crash logs and diagnostic data for app stability</li>
+          <li>Network information and IP address</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>2. Face Data Policy</h2>
+        
+        <h3>Collection and Purpose</h3>
+        <p>Our application processes facial data <span class="emphasis">only</span> when you upload an image to apply a requested visual effect such as hairstyle simulation, face enhancement, or similar face-based features.</p>
+        
+        <p>Face data is used solely to:</p>
+        <ul>
+          <li>Detect facial feature points (eyes, nose, facial contours)</li>
+          <li>Apply the user-requested visual transformation</li>
+          <li>Generate the result image with requested effects</li>
+        </ul>
+
+        <div class="important-notice">
+          <p>The app does NOT perform facial recognition, biometric identification, or user profiling.</p>
+        </div>
+        
+        <h3>Processing</h3>
+        <p>Uploaded images are processed temporarily and may be transmitted to secure servers only for the purpose of generating the requested result. All transmissions use industry-standard encryption protocols.</p>
+        
+        <h3>Retention (Explicit Statement)</h3>
+        <div class="highlight-box">
+          <p><span class="emphasis">We do NOT retain face data.</span></p>
+        </div>
+        
+        <ul>
+          <li>Facial images and facial feature data are deleted immediately after processing</li>
+          <li>No face data is stored, cached, archived, or reused</li>
+          <li>No face data is retained after the result is delivered to the user</li>
+          <li>Processing servers delete all temporary data within seconds of completion</li>
+        </ul>
+        
+        <h3>Sharing</h3>
+        <p>Face data is <span class="emphasis">not shared, sold, rented, or disclosed</span> to any third parties and is never used for advertising or analytics purposes.</p>
+      </section>
+
+      <section>
+        <h2>3. Third-Party Services</h2>
+        <p>The app may use trusted third-party services for cloud infrastructure, analytics, and crash reporting. These providers are contractually required to protect user data and do not independently store or retain face data.</p>
+        
+        <p>Third-party services may include:</p>
+        <ul>
+          <li>Cloud computing providers for image processing</li>
+          <li>Analytics services for app performance monitoring</li>
+          <li>Crash reporting tools for app stability</li>
+        </ul>
+        
+        <p>All third-party providers are carefully vetted and must comply with applicable data protection regulations.</p>
+      </section>
+
+      <section>
+        <h2>4. Data Security</h2>
+        <p>We use reasonable administrative, technical, and physical safeguards to protect your information, including:</p>
+        <ul>
+          <li>Secure transmission using SSL/TLS encryption</li>
+          <li>Access controls and authentication mechanisms</li>
+          <li>Regular security audits and updates</li>
+          <li>Secure data centers with physical security measures</li>
+        </ul>
+        
+        <div class="highlight-box">
+          <p>However, no method of storage or transmission over the Internet is 100% secure. While we strive to protect your information, we cannot guarantee absolute security.</p>
+        </div>
+      </section>
+
+      <section>
+        <h2>5. International Data Transfers</h2>
+        <p>Your data may be processed outside your country of residence. When applicable, we apply appropriate safeguards to ensure lawful data protection, including:</p>
+        <ul>
+          <li>Standard contractual clauses approved by regulatory authorities</li>
+          <li>Data processing agreements with service providers</li>
+          <li>Compliance with GDPR, CCPA, and other applicable regulations</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>6. User Rights</h2>
+        <p>Depending on your location, you may have the following rights:</p>
+        <ul>
+          <li><strong>Access:</strong> Request access to your personal data</li>
+          <li><strong>Correction:</strong> Request correction of inaccurate data</li>
+          <li><strong>Deletion:</strong> Request deletion of your personal data</li>
+          <li><strong>Restriction:</strong> Request restriction of processing</li>
+          <li><strong>Portability:</strong> Receive your data in a portable format</li>
+          <li><strong>Objection:</strong> Object to certain types of processing</li>
+        </ul>
+        
+        <p>Requests can be made using the contact details provided below. We will respond to your request within the timeframe required by applicable law.</p>
+      </section>
+
+      <section>
+        <h2>7. Children's Privacy</h2>
+        <p>Our service is not intended for children under the age of 13. We do not knowingly collect personal data from children under 13.</p>
+        
+        <p>If you are a parent or guardian and you are aware that your child has provided us with personal data, please contact us. If we discover that a child under 13 has provided us with personal information, we will delete such information from our servers immediately.</p>
+      </section>
+
+      <section>
+        <h2>8. Data Retention</h2>
+        <p>We retain your personal information only for as long as necessary to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required or permitted by law.</p>
+        
+        <p>As stated in Section 2, face data is never retained and is deleted immediately after processing.</p>
+      </section>
+
+      <section>
+        <h2>9. Changes to This Privacy Policy</h2>
+        <p>We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal requirements, or other factors.</p>
+        
+        <p>Any changes will be posted on this page with an updated revision date. We encourage you to review this Privacy Policy periodically. Your continued use of the Service after any modifications indicates your acceptance of the updated Privacy Policy.</p>
+      </section>
+
+      <div class="contact-section">
+        <h2>10. Contact Us</h2>
+        <p style="color: var(--text-secondary); margin-bottom: 20px;">If you have any questions or concerns about this Privacy Policy or your personal information, please contact us:</p>
+        <a href="mailto:contact@example.com" class="email-link">contact@example.com</a>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Your Company Name. All rights reserved.</p>
+      <p style="margin-top: 8px;">Committed to protecting your privacy and data security.</p>
+    </footer>
+  </div>
+</body>
+</html>
