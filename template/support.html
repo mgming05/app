@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -87,8 +88,8 @@
     }
 
     .support-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      display: flex;
+      justify-content: center;
       gap: 24px;
       margin-bottom: 48px;
     }
@@ -101,6 +102,8 @@
       text-align: center;
       transition: all 0.3s ease;
       cursor: pointer;
+      max-width: 350px;
+      width: 100%;
     }
 
     .support-card:hover {
@@ -202,8 +205,8 @@
     }
 
     .contact-methods {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      display: flex;
+      justify-content: center;
       gap: 24px;
       margin-top: 32px;
     }
@@ -214,6 +217,8 @@
       border-radius: 12px;
       padding: 24px;
       text-align: center;
+      max-width: 350px;
+      width: 100%;
     }
 
     .contact-icon {
@@ -367,15 +372,6 @@
       margin: 0;
     }
 
-    footer {
-      text-align: center;
-      padding: 32px 24px;
-      margin-top: 48px;
-      border-top: 1px solid var(--border-color);
-      color: var(--text-muted);
-      font-size: 0.875rem;
-    }
-
     @media (max-width: 768px) {
       h1 {
         font-size: 2rem;
@@ -383,10 +379,6 @@
 
       h2 {
         font-size: 1.5rem;
-      }
-
-      .support-grid {
-        grid-template-columns: 1fr;
       }
 
       .container {
@@ -404,6 +396,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="container">
     <header>
@@ -417,22 +410,13 @@
         <h3>Knowledge Base</h3>
         <p>Browse our comprehensive guides and tutorials</p>
       </div>
-      <div class="support-card">
-        <div class="support-icon">💬</div>
-        <h3>Live Chat</h3>
-        <p>Chat with our support team in real-time</p>
-      </div>
-      <div class="support-card">
-        <div class="support-icon">📧</div>
-        <h3>Email Support</h3>
-        <p>Send us a detailed message about your issue</p>
-      </div>
     </div>
 
     <section>
       <h2>System Status <span class="status-badge">All Systems Operational</span></h2>
       <div class="info-box">
-        <p>All services are running smoothly. Check back here for updates on any service interruptions or maintenance schedules.</p>
+        <p>All services are running smoothly. Check back here for updates on any service interruptions or maintenance
+          schedules.</p>
       </div>
     </section>
 
@@ -445,7 +429,8 @@
             <span class="faq-toggle">+</span>
           </div>
           <div class="faq-answer">
-            <p>Getting started is easy! Simply download the app from the App Store, create an account using your email, and follow the onboarding tutorial. You'll be guided through all the main features step by step.</p>
+            <p>Getting started is easy! Simply download the app from the App Store, create an account using your email,
+              and follow the onboarding tutorial. You'll be guided through all the main features step by step.</p>
           </div>
         </div>
 
@@ -455,7 +440,8 @@
             <span class="faq-toggle">+</span>
           </div>
           <div class="faq-answer">
-            <p>Absolutely. We take your privacy seriously. All data is encrypted in transit and at rest. We do not share your personal information with third parties. Please read our Privacy Policy for more details.</p>
+            <p>Absolutely. We take your privacy seriously. All data is encrypted in transit and at rest. We do not share
+              your personal information with third parties. Please read our Privacy Policy for more details.</p>
           </div>
         </div>
 
@@ -465,7 +451,9 @@
             <span class="faq-toggle">+</span>
           </div>
           <div class="faq-answer">
-            <p>You can cancel your subscription anytime through your device's App Store settings. Go to Settings > Your Name > Subscriptions, select our app, and tap "Cancel Subscription". Your subscription will remain active until the end of the current billing period.</p>
+            <p>You can cancel your subscription anytime through your device's App Store settings. Go to Settings > Your
+              Name > Subscriptions, select our app, and tap "Cancel Subscription". Your subscription will remain active
+              until the end of the current billing period.</p>
           </div>
         </div>
 
@@ -475,7 +463,9 @@
             <span class="faq-toggle">+</span>
           </div>
           <div class="faq-answer">
-            <p>Try these basic troubleshooting steps: 1) Make sure you have the latest version installed, 2) Restart the app, 3) Check your internet connection, 4) Restart your device. If the problem persists, please contact our support team with details about the issue.</p>
+            <p>Try these basic troubleshooting steps: 1) Make sure you have the latest version installed, 2) Restart the
+              app, 3) Check your internet connection, 4) Restart your device. If the problem persists, please contact
+              our support team with details about the issue.</p>
           </div>
         </div>
 
@@ -485,7 +475,9 @@
             <span class="faq-toggle">+</span>
           </div>
           <div class="faq-answer">
-            <p>If you've purchased a subscription or made an in-app purchase, you can restore it by going to Settings in the app and tapping "Restore Purchases". Make sure you're signed in with the same Apple ID you used for the original purchase.</p>
+            <p>If you've purchased a subscription or made an in-app purchase, you can restore it by going to Settings in
+              the app and tapping "Restore Purchases". Make sure you're signed in with the same Apple ID you used for
+              the original purchase.</p>
           </div>
         </div>
 
@@ -495,7 +487,8 @@
             <span class="faq-toggle">+</span>
           </div>
           <div class="faq-answer">
-            <p>Yes! We offer a free trial period for new users. The trial duration varies by subscription plan. You can cancel anytime during the trial period without being charged.</p>
+            <p>Yes! We offer a free trial period for new users. The trial duration varies by subscription plan. You can
+              cancel anytime during the trial period without being charged.</p>
           </div>
         </div>
       </div>
@@ -554,20 +547,6 @@
       <h2>Contact Support</h2>
       <div class="contact-methods">
         <div class="contact-method">
-          <div class="contact-icon">📧</div>
-          <h4>Email Support</h4>
-          <p>Get help via email within 24 hours</p>
-          <a href="mailto:support@example.com" class="contact-link">support@example.com</a>
-        </div>
-
-        <div class="contact-method">
-          <div class="contact-icon">💬</div>
-          <h4>Live Chat</h4>
-          <p>Chat with us Monday-Friday 9AM-6PM</p>
-          <a href="#" class="contact-link">Start Chat</a>
-        </div>
-
-        <div class="contact-method">
           <div class="contact-icon">🐦</div>
           <h4>Social Media</h4>
           <p>Follow us for updates and quick help</p>
@@ -607,7 +586,8 @@
 
           <div class="form-group">
             <label for="message">Message *</label>
-            <textarea id="message" name="message" required placeholder="Please describe your issue in detail..."></textarea>
+            <textarea id="message" name="message" required
+              placeholder="Please describe your issue in detail..."></textarea>
           </div>
 
           <button type="submit" class="submit-btn">Submit Ticket</button>
@@ -615,38 +595,35 @@
       </div>
     </section>
 
-    <footer>
-      <p>&copy; 2026 Your Company Name. All rights reserved.</p>
-      <p style="margin-top: 8px;">Need immediate assistance? Email us at <a href="mailto:support@example.com" style="color: var(--primary-color);">support@example.com</a></p>
-    </footer>
   </div>
 
   <script>
     function toggleFaq(element) {
       const faqItem = element.parentElement;
       const allItems = document.querySelectorAll('.faq-item');
-      
+
       // 关闭其他已打开的FAQ项
       allItems.forEach(item => {
         if (item !== faqItem && item.classList.contains('active')) {
           item.classList.remove('active');
         }
       });
-      
+
       // 切换当前FAQ项
       faqItem.classList.toggle('active');
     }
 
     // 表单提交处理
-    document.getElementById('supportForm').addEventListener('submit', function(e) {
+    document.getElementById('supportForm').addEventListener('submit', function (e) {
       e.preventDefault();
-      
+
       // 这里可以添加实际的表单提交逻辑
       alert('Thank you for contacting us! We will respond to your inquiry within 24 hours.');
-      
+
       // 重置表单
       this.reset();
     });
   </script>
 </body>
+
 </html>
