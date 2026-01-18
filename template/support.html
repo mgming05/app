@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Support Center</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-color: #3b82f6;
+      --primary-dark: #2563eb;
+      --success-color: #10b981;
+      --warning-color: #f59e0b;
+      --danger-color: #ef4444;
+      --text-primary: #111827;
+      --text-secondary: #6b7280;
+      --text-muted: #9ca3af;
+      --bg-color: #ffffff;
+      --bg-secondary: #f9fafb;
+      --bg-tertiary: #f3f4f6;
+      --border-color: #e5e7eb;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      --max-width: 1000px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --primary-color: #60a5fa;
+        --primary-dark: #3b82f6;
+        --success-color: #34d399;
+        --warning-color: #fbbf24;
+        --danger-color: #f87171;
+        --text-primary: #f9fafb;
+        --text-secondary: #d1d5db;
+        --text-muted: #9ca3af;
+        --bg-color: #0f172a;
+        --bg-secondary: #1e293b;
+        --bg-tertiary: #334155;
+        --border-color: #334155;
+      }
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background-color: var(--bg-color);
+      transition: background-color 0.3s ease;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    header {
+      text-align: center;
+      padding: 48px 24px;
+      margin-bottom: 48px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 16px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    h1 {
+      font-size: 2.75rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 12px;
+      letter-spacing: -0.025em;
+    }
+
+    .subtitle {
+      font-size: 1.125rem;
+      color: rgba(255, 255, 255, 0.95);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .support-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+
+    .support-card {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 28px;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .support-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary-color);
+    }
+
+    .support-icon {
+      font-size: 3rem;
+      margin-bottom: 16px;
+    }
+
+    .support-card h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .support-card p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    section {
+      margin-bottom: 48px;
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    h2::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 32px;
+      background: linear-gradient(180deg, #667eea, #764ba2);
+      border-radius: 2px;
+    }
+
+    .faq-container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .faq-item {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .faq-question {
+      padding: 20px 24px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 600;
+      color: var(--text-primary);
+      transition: background-color 0.2s ease;
+    }
+
+    .faq-question:hover {
+      background-color: var(--bg-tertiary);
+    }
+
+    .faq-toggle {
+      font-size: 1.5rem;
+      color: var(--primary-color);
+      transition: transform 0.3s ease;
+    }
+
+    .faq-answer {
+      padding: 0 24px;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      color: var(--text-secondary);
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+      padding: 0 24px 20px;
+    }
+
+    .faq-item.active .faq-toggle {
+      transform: rotate(45deg);
+    }
+
+    .contact-methods {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    .contact-method {
+      background-color: var(--bg-secondary);
+      border: 2px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .contact-icon {
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+    }
+
+    .contact-method h4 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .contact-method p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+    }
+
+    .contact-link {
+      display: inline-block;
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .contact-link:hover {
+      color: var(--primary-dark);
+      text-decoration: underline;
+    }
+
+    .troubleshooting-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .troubleshooting-item {
+      background-color: var(--bg-secondary);
+      border-left: 4px solid var(--primary-color);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+
+    .troubleshooting-item h4 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .troubleshooting-item ul {
+      margin-left: 20px;
+      color: var(--text-secondary);
+    }
+
+    .troubleshooting-item li {
+      margin-bottom: 8px;
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      background-color: var(--success-color);
+      color: #ffffff;
+      margin-left: 12px;
+    }
+
+    .form-container {
+      background-color: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 32px;
+      margin-top: 32px;
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      background-color: var(--bg-color);
+      color: var(--text-primary);
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .submit-btn {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #ffffff;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-md);
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .info-box {
+      background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 51, 234, 0.1) 100%);
+      border: 1px solid var(--primary-color);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+
+    .info-box p {
+      color: var(--text-primary);
+      margin: 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      margin-top: 48px;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .support-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .container {
+        padding: 16px;
+      }
+
+      header {
+        padding: 32px 20px;
+        margin-bottom: 32px;
+      }
+
+      .form-container {
+        padding: 24px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Support Center</h1>
+      <p class="subtitle">We're here to help! Find answers to common questions or reach out to our support team.</p>
+    </header>
+
+    <div class="support-grid">
+      <div class="support-card">
+        <div class="support-icon">📚</div>
+        <h3>Knowledge Base</h3>
+        <p>Browse our comprehensive guides and tutorials</p>
+      </div>
+      <div class="support-card">
+        <div class="support-icon">💬</div>
+        <h3>Live Chat</h3>
+        <p>Chat with our support team in real-time</p>
+      </div>
+      <div class="support-card">
+        <div class="support-icon">📧</div>
+        <h3>Email Support</h3>
+        <p>Send us a detailed message about your issue</p>
+      </div>
+    </div>
+
+    <section>
+      <h2>System Status <span class="status-badge">All Systems Operational</span></h2>
+      <div class="info-box">
+        <p>All services are running smoothly. Check back here for updates on any service interruptions or maintenance schedules.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>How do I get started with the app?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Getting started is easy! Simply download the app from the App Store, create an account using your email, and follow the onboarding tutorial. You'll be guided through all the main features step by step.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Is my data secure and private?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Absolutely. We take your privacy seriously. All data is encrypted in transit and at rest. We do not share your personal information with third parties. Please read our Privacy Policy for more details.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>How do I cancel my subscription?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>You can cancel your subscription anytime through your device's App Store settings. Go to Settings > Your Name > Subscriptions, select our app, and tap "Cancel Subscription". Your subscription will remain active until the end of the current billing period.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Why is the app not working properly?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Try these basic troubleshooting steps: 1) Make sure you have the latest version installed, 2) Restart the app, 3) Check your internet connection, 4) Restart your device. If the problem persists, please contact our support team with details about the issue.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>How can I restore my previous purchase?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>If you've purchased a subscription or made an in-app purchase, you can restore it by going to Settings in the app and tapping "Restore Purchases". Make sure you're signed in with the same Apple ID you used for the original purchase.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Do you offer a free trial?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Yes! We offer a free trial period for new users. The trial duration varies by subscription plan. You can cancel anytime during the trial period without being charged.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Troubleshooting Guide</h2>
+      <div class="troubleshooting-list">
+        <div class="troubleshooting-item">
+          <h4>🔄 App Crashes or Freezes</h4>
+          <ul>
+            <li>Force close the app and restart it</li>
+            <li>Update to the latest version from the App Store</li>
+            <li>Clear the app cache in Settings</li>
+            <li>Restart your device</li>
+            <li>Uninstall and reinstall the app (your data will be preserved if you're logged in)</li>
+          </ul>
+        </div>
+
+        <div class="troubleshooting-item">
+          <h4>📡 Connection Issues</h4>
+          <ul>
+            <li>Check your internet connection (WiFi or cellular data)</li>
+            <li>Try switching between WiFi and cellular data</li>
+            <li>Disable VPN if you're using one</li>
+            <li>Check if your firewall is blocking the app</li>
+            <li>Reset your network settings</li>
+          </ul>
+        </div>
+
+        <div class="troubleshooting-item">
+          <h4>🔐 Login Problems</h4>
+          <ul>
+            <li>Verify your email address and password</li>
+            <li>Use "Forgot Password" to reset your password</li>
+            <li>Check if your account is active</li>
+            <li>Clear browser cache if using web version</li>
+            <li>Try logging in with a different method (email, social login)</li>
+          </ul>
+        </div>
+
+        <div class="troubleshooting-item">
+          <h4>💳 Payment Issues</h4>
+          <ul>
+            <li>Verify your payment method is valid and not expired</li>
+            <li>Check if there are sufficient funds</li>
+            <li>Update your payment information in App Store settings</li>
+            <li>Contact your bank to ensure the transaction isn't blocked</li>
+            <li>Try a different payment method</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Contact Support</h2>
+      <div class="contact-methods">
+        <div class="contact-method">
+          <div class="contact-icon">📧</div>
+          <h4>Email Support</h4>
+          <p>Get help via email within 24 hours</p>
+          <a href="mailto:support@example.com" class="contact-link">support@example.com</a>
+        </div>
+
+        <div class="contact-method">
+          <div class="contact-icon">💬</div>
+          <h4>Live Chat</h4>
+          <p>Chat with us Monday-Friday 9AM-6PM</p>
+          <a href="#" class="contact-link">Start Chat</a>
+        </div>
+
+        <div class="contact-method">
+          <div class="contact-icon">🐦</div>
+          <h4>Social Media</h4>
+          <p>Follow us for updates and quick help</p>
+          <a href="#" class="contact-link">@YourApp</a>
+        </div>
+      </div>
+
+      <div class="form-container">
+        <h3 style="margin-bottom: 20px; color: var(--text-primary);">Submit a Support Ticket</h3>
+        <form id="supportForm">
+          <div class="form-group">
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" required placeholder="Your full name">
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+          </div>
+
+          <div class="form-group">
+            <label for="category">Issue Category *</label>
+            <select id="category" name="category" required>
+              <option value="">Select a category</option>
+              <option value="technical">Technical Issue</option>
+              <option value="billing">Billing & Payments</option>
+              <option value="account">Account Management</option>
+              <option value="feature">Feature Request</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="subject">Subject *</label>
+            <input type="text" id="subject" name="subject" required placeholder="Brief description of your issue">
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" required placeholder="Please describe your issue in detail..."></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Submit Ticket</button>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2026 Your Company Name. All rights reserved.</p>
+      <p style="margin-top: 8px;">Need immediate assistance? Email us at <a href="mailto:support@example.com" style="color: var(--primary-color);">support@example.com</a></p>
+    </footer>
+  </div>
+
+  <script>
+    function toggleFaq(element) {
+      const faqItem = element.parentElement;
+      const allItems = document.querySelectorAll('.faq-item');
+      
+      // 关闭其他已打开的FAQ项
+      allItems.forEach(item => {
+        if (item !== faqItem && item.classList.contains('active')) {
+          item.classList.remove('active');
+        }
+      });
+      
+      // 切换当前FAQ项
+      faqItem.classList.toggle('active');
+    }
+
+    // 表单提交处理
+    document.getElementById('supportForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // 这里可以添加实际的表单提交逻辑
+      alert('Thank you for contacting us! We will respond to your inquiry within 24 hours.');
+      
+      // 重置表单
+      this.reset();
+    });
+  </script>
+</body>
+</html>
